@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os
 from pathlib import Path
-
+import dj_database_url
 
 # TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
 # TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
@@ -57,7 +57,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Eco_Trio_Main.urls'
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 # import os
 # RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -65,6 +65,12 @@ ALLOWED_HOSTS = ['*']
 #     ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME]
 # else:
 #     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+}
 
 
 TEMPLATES = [
