@@ -12,12 +12,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-load_dotenv()
 
-TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
-TWILIO_PHONE_NUMBER = os.getenv('TWILIO_PHONE_NUMBER')
+
+# TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
+# TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
+# TWILIO_PHONE_NUMBER = os.getenv('TWILIO_PHONE_NUMBER')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -58,20 +57,20 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Eco_Trio_Main.urls'
-ALLOWED_HOSTS = ['AnnaluruChaitanya.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
-import os
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME]
-else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+# import os
+# RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+# if RENDER_EXTERNAL_HOSTNAME:
+#     ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME]
+# else:
+#     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Eco_Trio_Main\templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'Eco_Trio_Main','templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
