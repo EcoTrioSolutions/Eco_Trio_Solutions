@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: eco-trio
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn Eco_Trio_Main.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: Eco_Trio_Main.settings
+      - key: SECRET_KEY
+        value: your_secret_key_here
+      - key: ALLOWED_HOSTS
+        value: yourapp.onrender.com
