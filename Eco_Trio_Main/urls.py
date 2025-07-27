@@ -20,11 +20,8 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.conf.urls.static import static
 
-def home(request):
-    return HttpResponse("🚀 Hello from Eco_Trio_Main!")
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
     path('', include('Eco_Trio_Sub.urls')),
 ]
 
